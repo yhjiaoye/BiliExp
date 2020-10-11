@@ -113,16 +113,7 @@ def bili_exp(cookieData, pm):
        pm.addMsg(str(rdata))
        return
 
-   if(toubi_num > 0):
-       for i in range(toubi_num):
-           try:
-               info = biliapi.coin(datas[i]["aid"], 1, 1)
-               logging.info(f'投币信息 ：{str(info)}')
-               if(info["code"] == 0):
-                   rdata["投币数量"] += 1
-           except Exception as e: 
-               logging.warning(f'投币异常，原因为{str(e)}')
-
+  
    try:
        info = biliapi.report(datas[5]["aid"], datas[5]["cid"], 300)
        logging.info(f'模拟视频观看进度上报：{str(info)}')
